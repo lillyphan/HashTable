@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class HashTable<E>{
     private ArrayList<E> table;
@@ -19,7 +20,13 @@ public class HashTable<E>{
     }
 
     //returns the unique int in the range of the [0, array length)
-    private int hashCode(String key){
-        return 0;
+    public int hashCode(String key){
+        int hash = 0;
+        int index = 0;
+        while (key.length() != index) {
+            hash += key.charAt(index) * Math.pow(2, index);
+            index++;
+        }
+        return hash % 2027;
     }
 }
