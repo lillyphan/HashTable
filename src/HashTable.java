@@ -26,7 +26,7 @@ public class HashTable{
 
     //get hashes the key to get the index, and returns that element. Returns null if key not found.
     public String get(String key){
-        if (table.contains(key)){
+        if (table.get(hashCode(key) % size) != null){
             return table.get(hashCode(key) % size); //the use of mod makes the hash code scalable for different array sizes
         } else {
             return null;
